@@ -33,7 +33,7 @@
 }
 .profileHeaderBackground, .profileHeaderBackground__visual {
     width: 100% !important;
-    background-size: 100%;
+    background-size: 100% !important;
 }
 
 .profileHeaderInfo .g-type-shrinkwrap-block {
@@ -63,9 +63,9 @@
     background-color: rgba(8, 7, 13, .89);
 }
 
-#content {
+body #content {
     background: hsla(296, 10%, 7%, .3) !important;
-    backdrop-filter: hue-rotate(15deg) brightness(90%) contrast(110%) saturate(40%)  blur(75px);
+    backdrop-filter: hue-rotate(15deg) brightness(90%) contrast(110%) saturate(40%)  blur(75px) !important;
 }
 
 .userMain {
@@ -122,10 +122,10 @@
 .l-listen-hero .g-type-shrinkwrap-inline {
     backdrop-filter: var(--glass-bg);
     background-color: rgba(0, 0, 0, 56%) !important;
-    top: 0;
+    top: 0 !important;
 }
 .soundTitle__usernameTitleContainer {
-    top: 0; /* this was -10 for some reason even though it wasn't set, and the +10 shift on the actual title shrinkwrap was just to compensate for this? lol */
+    top: 0 !important; /* this was -10 for some reason even though it wasn't set, and the +10 shift on the actual title shrinkwrap was just to compensate for this? lol */
 } 
 .l-listen-hero .g-type-shrinkwrap-inline::before {
     display: none;
