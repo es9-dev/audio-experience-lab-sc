@@ -1,0 +1,236 @@
+:root {
+    --glass-bg: blur(10px) brightness(80%) contrast(115%);
+    --button-secondary-selected-font-color: #ff76f4 !important;
+    
+    --widget-color: hsl(0, 0%, 4%);
+}
+#content {
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .74);
+}
+#content > div:has(.l-listen-hero) {
+    --song-player-hero-margin: 20px;
+    padding-top: var(--song-player-hero-margin);
+}
+.theme-dark {
+    --button-secondary-selected-font-color: hsl(296, 100%, 72%);
+    
+    
+    --input-default-background-color: var(--widget-color);
+    --button-secondary-background-color: var(--widget-color);
+    --button-secondary-selected-background-color: hsl(296, 18%, 17%);
+}
+.header {
+    backdrop-filter: var(--glass-bg) blur(30px) brightness(20%) !important;
+    -webkit-backdrop-filter: var(--glass-bg) !important;
+    background-color: rgba(0, 0, 0, .1) !important;
+}
+
+/* User Profile Pages */
+.l-user-hero.sc-px-2x, profileHeader {
+    padding-left: 0px;
+    padding-right: 0pc;
+}
+.profileHeaderBackground, .profileHeaderBackground__visual {
+    width: 100% !important;
+    background-size: 100%;
+}
+
+.profileHeaderInfo .g-type-shrinkwrap-block {
+    backdrop-filter: var(--glass-bg);
+    background-color: rgba(0, 0, 0, 56%) !important;
+}
+
+
+.userInfoBar.sc-px-2x {
+    background-color: rgba(0, 0, 0, 56%) !important;
+    backdrop-filter: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-bg);
+    
+    /*
+    margin-left: 15px;
+    margin-right: 15px;
+    */
+}
+
+/* ugly, also creates a seam for background-filter with .header */
+.dropbar__content {
+    display: none;
+}
+
+.featuredProfiles {
+    backdrop-filter: var(--glass-bg);
+    background-color: rgba(8, 7, 13, .89);
+}
+
+#content {
+    background: hsla(296, 10%, 7%, .3) !important;
+    backdrop-filter: hue-rotate(15deg) brightness(90%) contrast(110%) saturate(40%)  blur(75px);
+}
+
+.userMain {
+    margin-top: 10px;
+}
+.sound__body {
+    background-color: rgba(0, 0, 0, 70%) !important;
+    backdrop-filter: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-bg);
+    border-radius: 10px;
+    padding: 15px;
+    margin-left: 15px;
+}
+
+/* play controls */
+.playControls__bg, .playControls__inner {
+    backdrop-filter: var(--glass-bg) blur(30px) brightness(20%) !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    
+    --widget-color: rgba(0,0,0,0);
+    
+    --input-default-background-color: var(--widget-color);
+    --button-secondary-background-color: var(--widget-color);
+    --button-secondary-selected-background-color: var(--widget-color);
+}
+
+
+/* SONG-PAGE-FULL-BANNER */
+.listenContent__inner.listenContent__visual.sc-mx-2x {
+    margin-left: 0;
+    margin-right: 0;
+}
+.listenContent__inner.listenContent__visual.sc-mx-2x .sound__body {
+    margin-left: 0;
+}
+.listenContent__inner.listenContent__visual.sc-mx-2x .sound__body .visualSound__wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+/* song page */
+.waveform__scene > .sceneLayer:not(.waveformCommentsNode) {
+    filter: hue-rotate(-90deg) contrast(100%);
+    transition: filter .5s ease-in-out;
+}
+.playing .waveform__scene > :first-child /*.sceneLayer:not(.waveformCommentsNode)*/ {
+    filter: hue-rotate(-90deg) contrast(100%) drop-shadow(0px 0px 8px #ffffff4f);
+}
+.playing .l-listen-hero .waveform__scene > .sceneLayer:not(.waveformCommentsNode) {
+    filter: hue-rotate(-90deg) contrast(100%) drop-shadow(0px 0px 30px #ffffffab);
+}
+
+.l-listen-hero .g-type-shrinkwrap-inline {
+    backdrop-filter: var(--glass-bg);
+    background-color: rgba(0, 0, 0, 56%) !important;
+    top: 0;
+}
+.soundTitle__usernameTitleContainer {
+    top: 0; /* this was -10 for some reason even though it wasn't set, and the +10 shift on the actual title shrinkwrap was just to compensate for this? lol */
+} 
+.l-listen-hero .g-type-shrinkwrap-inline::before {
+    display: none;
+}
+
+.fullListenHero, .systemPlaylistHero { /* song and playlist banners */
+    margin-left: 0px;
+    margin-right: 0px;
+    isolation: auto !important;
+}
+.fullListenHero {
+    overflow: hidden;
+}
+.l-listen-hero {
+    --border-radius: 20px;
+    --inset-shadow: inset 0 -15px 100px 0px #1515156e;
+    margin-left: var(--song-player-hero-margin);
+    margin-right: var(--song-player-hero-margin);
+    box-shadow: 0 5px 10px -5px #0000007a;
+    border-radius: var(--border-radius);
+}
+.fullListenHero > div {
+    unicode-bidi: unset !important;
+}
+
+.listenArtworkWrapper {
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .33);
+    border-radius: var(--border-radius);
+}
+
+.l-listen-hero .backgroundGradient {
+    filter: contrast(100%) brightness(100%) saturate(250%) hue-rotate(15deg) ;
+}
+.l-listen-hero .backgroundGradient__buffer {
+    border-radius: var(--border-radius);
+    
+    box-shadow: var(--inset-shadow);
+}
+.l-listen-hero div:has(>.backgroundGradient)::before {
+    
+    content: "";
+    position: absolute;
+    z-index: 10 !important;
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--inset-shadow);
+}
+.l-listen-hero div:has(>.backgroundGradient)::after {
+    
+    border-radius: var(--border-radius);
+    box-shadow: var(--inset-shadow);
+    content: "";
+    position: absolute;
+    z-index: 10 !important;
+    display: block !important;
+    inset: 0px;
+    backdrop-filter: hue-rotate(-90deg) saturate(150%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+    mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+    background: linear-gradient(
+        135deg,
+        rgb(255, 255, 255) 0%,
+        rgba(255, 255, 255, 0) 100%,
+        rgba(0,0,0,0) 100%
+    );
+    opacity: 100%;
+}
+.fullHero__foreground::before {
+    border-radius: var(--border-radius);
+    content: "";
+    position: absolute;
+    z-index: 0 !important;
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    inset: 0px;
+    margin: auto;
+    background: url("https://www.toptal.com/designers/subtlepatterns/uploads/fake_brick.png");
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    filter: contrast(105%) brightness(200%);
+    background-color: rgb(255, 255, 255);
+    opacity: 20%;
+    
+}
+
+
+.listenNetworkSidebar div {
+    background-color: rgba(0,0,0,0) !important;
+}
+.ouxtlr0 {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    backdrop-filter: var(--glass-bg);
+    background-color: #08070d !important;
+}
+
+.truncatedAudioInfo.m-overflow.m-collapsed .truncatedAudioInfo__wrapper::after {
+    --surface-rgb: 0,0,0;
+    pointer-events: none;
+    height: 100% !important;
+    background: linear-gradient(180deg,rgba(var(--surface-rgb),0),rgba(var(--surface-rgb), .33)) !important;
+}
