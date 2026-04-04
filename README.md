@@ -3,7 +3,7 @@
 ### An experimental UX overhaul for SoundCloud featuring an audio-responsive visualizer.
 ---
 <p align="center">
-    <img alt="Visualizer Demo" src="https://res.cloudinary.com/doz1z9ynu/image/upload/v1775324032/demo_reduced_nr2mdi.gif">
+    <img alt="Visualizer Demo" src="https://res.cloudinary.com/doz1z9ynu/image/upload/w_380,q_auto:eco,f_gif/v1775324032/demo_reduced_nr2mdi.gif">
 </p>
 
 ---
