@@ -88,7 +88,7 @@ const checkArtwork = () => {
                 currentEl.classList.replace('bg-visible', 'bg-hidden');
 
                 currentSet = nextSet;
-                console.log("[AEL] Cross-fade initiated to: ", highRes);
+                // console.log("[AEL]: ", highRes);
             }
         }
     }
