@@ -24,6 +24,7 @@ const initCanvas = () => {
 
             .base-layer, .glow-layer {
                 position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                transform-origin: center center;
                 will-change: transform;
             }
 
@@ -31,6 +32,7 @@ const initCanvas = () => {
                 position: absolute; 
                 top: -150%; left: -150%; width: 400%; height: 400%; 
                 background-repeat: repeat;
+                background-position: center;
                 pointer-events: none;
             }
             .sc-blur::after {
@@ -50,11 +52,11 @@ const initCanvas = () => {
             }
 
             .base-layer .sc-blur { 
-                filter: blur(3.385vw) contrast(90%) brightness(10%) saturate(200%); 
+                filter: blur(4.385vw) contrast(100%) brightness(50%) saturate(200%); 
                 background-size: auto 12.5vw;
             }
             .glow-layer .sc-blur { 
-                filter: contrast(150%) saturate(400%) hue-rotate(15deg) blur(3.906vw); 
+                filter: contrast(170%) brightness(110%) saturate(400%) hue-rotate(15deg) blur(3.906vw) opacity(67%); 
                 background-size: auto 20vw;
             }
 
