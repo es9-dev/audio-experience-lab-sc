@@ -3,7 +3,7 @@
 const GUI_CONFIG = {
     "fftSize": 4096,
     "masterVolumeInfluence": 1,
-    "compression": .35,           // 0.5 = Square Root (Lifts the floor, reduces flashiness)
+    "compression": .7,           // 0.5 = Square Root (Lifts the floor, reduces flashiness)
     "subWeight": 0.25,
     "drumWeight": 0.25,
     "midWeight": 0.25,
@@ -22,7 +22,7 @@ let currentRotation = 0;
 let lastTime = 0;
 
 const PASSIVE_SPEED = 0.02;
-const ACTIVE_SPEED_MULT = 0.6;
+const ACTIVE_SPEED_MULT = 0.35;
 
 const lerpSmooth = (val) => 1.0 - (val * 0.98);
 
