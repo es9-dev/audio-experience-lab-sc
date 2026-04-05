@@ -35,12 +35,12 @@ const initCanvas = () => {
             }
 
             .base-layer .sc-blur { 
-                filter: blur(65px) contrast(80%) brightness(10%) saturate(200%); 
-                background-size: auto 5%;
+                filter: blur(3.385vw) contrast(80%) brightness(10%) saturate(200%); 
+                background-size: auto 12.5vw;
             }
             .glow-layer .sc-blur { 
-                filter: contrast(150%) saturate(400%) hue-rotate(15deg) blur(75px); 
-                background-size: auto 8%;
+                filter: contrast(150%) saturate(400%) hue-rotate(15deg) blur(4.906vw); 
+                background-size: auto 20vw;
             }
 
             .glow-layer { mix-blend-mode: overlay; }
