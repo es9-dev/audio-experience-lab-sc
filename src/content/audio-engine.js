@@ -2,8 +2,8 @@
 
 const GUI_CONFIG = {
     "fftSize": 4096,
-    "masterVolumeInfluence": .3,
-    "compression": 1,           // 0.5 = Square Root (Lifts the floor, reduces flashiness)
+    "masterVolumeInfluence": 1,
+    "compression": .7,           // 0.5 = Square Root (Lifts the floor, reduces flashiness)
     "subWeight": 0.25,
     "drumWeight": 0.25,
     "midWeight": 0.25,
@@ -12,8 +12,8 @@ const GUI_CONFIG = {
     "drumSmooth": 0.75,
     "midSmooth": 0.6,
     "highSmooth": 0.3,
-    "minBrightness": 0.2,         // Slightly higher base for a "warmer" idle state
-    "maxBrightness": 1.5
+    "minBrightness": 0.1,         // Slightly higher base for a "warmer" idle state
+    "maxBrightness": 1.75
 };
 
 let audioCtx, analyser, dataArray;
@@ -22,7 +22,7 @@ let currentRotation = 0;
 let lastTime = 0;
 
 const PASSIVE_SPEED = 0.02;
-const ACTIVE_SPEED_MULT = 0.6;
+const ACTIVE_SPEED_MULT = 0.35;
 
 const lerpSmooth = (val) => 1.0 - (val * 0.98);
 

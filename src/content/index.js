@@ -20,10 +20,13 @@ const initCanvas = () => {
             .sc-layer-container {
                 position: absolute; top: 0; left: 0; width: 100%; height: 100%;
                 transition: opacity 0.8s ease-in-out;
+                -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.33) 100%);
+                mask-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgb(0,0,0,.33) 100%);
             }
 
             .base-layer, .glow-layer {
                 position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                transform-origin: center center;
                 will-change: transform;
             }
 
@@ -31,16 +34,32 @@ const initCanvas = () => {
                 position: absolute; 
                 top: -150%; left: -150%; width: 400%; height: 400%; 
                 background-repeat: repeat;
+                background-position: center;
                 pointer-events: none;
+            }
+            .sc-blur::after {
+                content: "";
+                position: absolute;
+                top: 0; left: 0; width: 100%; height: 100%;
+                
+                /* Create a 3px black dot every 10px */
+                background-image: radial-gradient(circle, black 30%, transparent 30%, transparent 100%);
+                background-size: 7.5vw 7.5vw;
+                
+                /* Adjust opacity to control how much the dots "eat" into the colors */
+                opacity: 1; 
+                
+                /* Ensure it doesn't block the background-image of the parent */
+                z-index: 3;
             }
 
             .base-layer .sc-blur { 
-                filter: blur(65px) contrast(80%) brightness(10%) saturate(200%); 
-                background-size: auto 5%;
+                filter: blur(4.385vw) contrast(120%) brightness(40%) saturate(200%) hue-rotate(15deg); 
+                background-size: auto 12.5vw;
             }
             .glow-layer .sc-blur { 
-                filter: contrast(150%) saturate(400%) hue-rotate(15deg) blur(75px); 
-                background-size: auto 8%;
+                filter: contrast(170%) brightness(140%) saturate(400%) hue-rotate(15deg) blur(3.906vw) opacity(67%); 
+                background-size: auto 20vw;
             }
 
             .glow-layer { mix-blend-mode: overlay; }
