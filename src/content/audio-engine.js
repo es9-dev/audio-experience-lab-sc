@@ -104,7 +104,7 @@ const updateVisuals = (timestamp) => {
     const speed = (PASSIVE_SPEED + (audioFactor * ACTIVE_SPEED_MULT)) * dt;
     currentRotation = (currentRotation + speed) % 360;
     
-    document.querySelectorAll('.sc-layer').forEach(l => {
+    document.querySelectorAll('.base-layer, .glow-layer').forEach(l => {
         l.style.transform = `rotate(${currentRotation}deg)`;
     });
 

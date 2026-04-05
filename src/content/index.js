@@ -1,4 +1,5 @@
-// inject CSS styles
+'use strict';
+
 const initCanvas = () => {
     if (document.getElementById('sc-master-bg')) return;
 
@@ -20,17 +21,30 @@ const initCanvas = () => {
                 position: absolute; top: 0; left: 0; width: 100%; height: 100%;
                 transition: opacity 0.8s ease-in-out;
             }
-            .sc-layer { 
-                position: absolute; top: -150%; left: -150%; width: 400%; height: 400%; 
-                background-repeat: repeat; will-change: transform;
+
+            .base-layer, .glow-layer {
+                position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                will-change: transform;
             }
-            /* Specific Layer Styles */
-            .base-layer .sc-layer { background-size: auto 5%; filter: blur(65px) contrast(80%) brightness(10%) saturate(200%); }
-            .glow-layer .sc-layer { 
-                background-size: auto 8%; 
+
+            .sc-blur {
+                position: absolute; 
+                top: -150%; left: -150%; width: 400%; height: 400%; 
+                background-repeat: repeat;
+                pointer-events: none;
+            }
+
+            .base-layer .sc-blur { 
+                filter: blur(65px) contrast(80%) brightness(10%) saturate(200%); 
+                background-size: auto 5%;
+            }
+            .glow-layer .sc-blur { 
                 filter: contrast(150%) saturate(400%) hue-rotate(15deg) blur(75px); 
-                mix-blend-mode: overlay; 
+                background-size: auto 8%;
             }
+
+            .glow-layer { mix-blend-mode: overlay; }
+
             #sc-glow-mask {
                 position: absolute; top: 0; left: 0; width: 100%; height: 100%;
                 -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
@@ -38,7 +52,6 @@ const initCanvas = () => {
             }
             #sc-glow-container { width: 100%; height: 100%; filter: brightness(0.05); will-change: filter; }
             
-            /* The cross-fade states */
             .bg-hidden { opacity: 0; }
             .bg-visible { opacity: 1; }
 
@@ -46,12 +59,28 @@ const initCanvas = () => {
         </style>
         
         <div id="bg-set-a" class="sc-layer-container bg-visible">
-            <div class="base-layer"><div class="sc-layer"></div></div>
-            <div id="sc-glow-mask"><div id="sc-glow-container"><div class="glow-layer"><div class="sc-layer"></div></div></div></div>
+            <div class="base-layer">
+                <div class="sc-blur"></div>
+            </div>
+            <div id="sc-glow-mask">
+                <div id="sc-glow-container">
+                    <div class="glow-layer">
+                        <div class="sc-blur"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="bg-set-b" class="sc-layer-container bg-hidden">
-            <div class="base-layer"><div class="sc-layer"></div></div>
-            <div id="sc-glow-mask"><div id="sc-glow-container"><div class="glow-layer"><div class="sc-layer"></div></div></div></div>
+            <div class="base-layer">
+                <div class="sc-blur"></div>
+            </div>
+            <div id="sc-glow-mask">
+                <div id="sc-glow-container">
+                    <div class="glow-layer">
+                        <div class="sc-blur"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     `;
     document.body.appendChild(masterBg);
@@ -73,28 +102,23 @@ const checkArtwork = () => {
                 lastUrl = url;
                 const highRes = url.replace('-large.', '-t500x500.').replace('-badge.', '-t500x500.');
                 
-                // Determine which set is currently hidden
                 const nextSet = currentSet === 'a' ? 'b' : 'a';
                 const nextEl = document.getElementById(`bg-set-${nextSet}`);
                 const currentEl = document.getElementById(`bg-set-${currentSet}`);
 
-                // 1. Update the hidden set's images
-                nextEl.querySelectorAll('.sc-layer').forEach(l => {
+                nextEl.querySelectorAll('.sc-blur').forEach(l => {
                     l.style.backgroundImage = `url("${highRes}")`;
                 });
 
-                // 2. Perform the cross-fade
                 nextEl.classList.replace('bg-hidden', 'bg-visible');
                 currentEl.classList.replace('bg-visible', 'bg-hidden');
 
                 currentSet = nextSet;
-                // console.log("[AEL]: ", highRes);
             }
         }
     }
 };
 
-// Initialization logic
 const observer = new MutationObserver(() => {
     if (document.body) {
         initCanvas();
