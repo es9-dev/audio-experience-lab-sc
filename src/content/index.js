@@ -20,6 +20,8 @@ const initCanvas = () => {
             .sc-layer-container {
                 position: absolute; top: 0; left: 0; width: 100%; height: 100%;
                 transition: opacity 0.8s ease-in-out;
+                -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.33) 100%);
+                mask-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgb(0,0,0,.33) 100%);
             }
 
             .base-layer, .glow-layer {
@@ -52,11 +54,11 @@ const initCanvas = () => {
             }
 
             .base-layer .sc-blur { 
-                filter: blur(4.385vw) contrast(100%) brightness(50%) saturate(200%); 
+                filter: blur(4.385vw) contrast(120%) brightness(40%) saturate(200%) hue-rotate(15deg); 
                 background-size: auto 12.5vw;
             }
             .glow-layer .sc-blur { 
-                filter: contrast(170%) brightness(110%) saturate(400%) hue-rotate(15deg) blur(3.906vw) opacity(67%); 
+                filter: contrast(170%) brightness(140%) saturate(400%) hue-rotate(15deg) blur(3.906vw) opacity(67%); 
                 background-size: auto 20vw;
             }
 
